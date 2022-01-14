@@ -3,42 +3,43 @@ const servicesData = [
         id: 1,
         "title": "Usman",
         "description": "Web Developer",
-        "Image": "./aboutimage.png",
-        "Job": "Heapware"
+        "Image": "./first_one.jpg",
 
     },
     {
         id: 1,
         "title": "Umer",
         "description": "Full-Stack Developer",
-        "Image": "./umar.png",
+        "Image": "./third_one.jpg",
     },
     {
         id: 3,
         "title": "Qaisar",
-        "description": "Piya",
-        "Image": "./qaisar.jpg",
+        "description": "Graphic Designer",
+        "Image": "./fourth_one.jpg",
 
     },
     {
         
         "id": 4,
-        "title": "Qaisar",
-        "description": "Piya",
-        "Image": "./qaisar.jpg",
+        "title": "Julia",
+        "description": "UI/UX Designer",
+        "Image": "./next.jpg",
         "Job": "Heapware"
 
     },
     {
-        "title": "Usman",
+        "title": "Alex",
         "description": "Web Developer",
-        "Image": "./aboutimage.png",
+        "Image": "./next_one.jpg",
     },
     {
         
-        "title": "Umer",
+        "title": "Christine",
         "description": "Full-Stack Developer",
-        "Image": "./umar.png",
+        "Image": "./second_one.jpg",
+        "Job": "Heapware"
+
     },
 ]
 
@@ -131,6 +132,13 @@ function allData(servicesData) {
     })
     cardContainer.innerHTML = card;
 
+}
+
+
+function searchBar(servicesData) {
+    let input = document.getElementById('search-bar').value;
+    input = input.toLowerCase();
+    console.log(input);
 }
 
 
