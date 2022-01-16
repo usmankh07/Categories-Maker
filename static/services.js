@@ -41,106 +41,54 @@ const servicesData = [
         "Job": "Heapware"
 
     },
-]
+];
 
-const runData = (servicesData) => {
-    const cardContainer = document.querySelector('.services');
-    i=0;
-    
-    do{
-        let card = 
-        ` <div class="card_items">
-        <img src=${servicesData[i].Image} alt="">
-        <h3>${servicesData[i].title}</h3>
-        <p>${servicesData[i].description}</p>
-    </div>`
+// function webDeveloper(servicesData) {
+//     const webServices = servicesData.filter((webs) => webs.Job == "Heapware");
+//     renderCards(webServices);
+// }
 
-            cardContainer.innerHTML += card;
-        i++
-    }
-    while (i<servicesData.length)
+
+// // This Button will show you filtered data.
+// function filterIt(servicesData) {
+//     const filteredServices = servicesData.filter((web) => web.id === 1);
+//     renderCards(filteredServices);
+// }
+
+// This Button will show you all the data.
+function allData(servicesData) {
+  renderCards(servicesData);
+}
+
+// This function grabs the current user input and shows all services that have a description containing the user input 
+function searchBar(element) {
+    const userInput = element.value;
+    const filteredServices = servicesData.filter((data) => data.description.toLowerCase().includes(userInput.toLowerCase()));
+    renderCards(filteredServices);
 }
 
 
-// This function gives all its data to its argument servicesData.
-runData(servicesData);
-
-
-function webDeveloper(servicesData) {
-    const webServices = servicesData.filter((webs) => webs.Job == "Heapware");
-    let webTemplate = '';
-    webServices.forEach((node) => {
-        const cards = 
-        `
-        <div class= "card_items">
-          <img src="${node.Image}" alt="Image Available Soon" />
-          <h3>${node.title}</h3>
-          <p>${node.description}</p>
-          
-      </div>
-        `;
-        webTemplate += cards;
-    })
-    cardsContainer.innerHTML = webTemplate;
-}
-
-const cardsContainer = document.querySelector('.services')
-// This Button will show you filtered data.
-function filterIt(servicesData) {
-    const filteredServices = servicesData.filter((web) => web.id === 1);
-    let htmlTemplate = '';
-    filteredServices.forEach((node) => {
+// This function takes an array of services and creates divs for them.
+function renderCards(services) {
+	let htmlTemplate = '';
+	const cardsContainer = document.querySelector('.services')
+    services.forEach((node) => {
       const cards = `
       <div class= "card_items">
           <img src="${node.Image}" alt="Image Available Soon" />
           <h3>${node.title}</h3>
           <p>${node.description}</p>
           
-      </div> `;
+      </div> `
+
       htmlTemplate += cards;
     });
     cardsContainer.innerHTML = htmlTemplate;
 }
 
-// function filterIt(servicesData) {
-//     const cardContainer = document.querySelector('.services');
 
-//     servicesData.map((webs)=> {
-//         if(webs.id == 1){
-//             let card = 
-//                 ` <div class="card_items">
-//                 <img src=${webs.Image} alt="">
-//                 <h3>${webs.title}</h3>
-//                 <p>${webs.description}</p>
-//             </div>
-//             `
-//             cardContainer.innerHTML += card;
-//         }
-//     })
-// }
-// This Button will show you all the data.
-function allData(servicesData) {
-    const cardContainer = document.querySelector('.services');
-    
-    let card = servicesData.map((Data)=> { 
-        return `<div class="card_items">
-        <img src=${Data.Image} alt="">
-        <h3>${Data.title}</h3>
-        <p>${Data.description}</p>
-        </div>
-        `
-    })
-    cardContainer.innerHTML = card;
-
-}
-
-
-function searchBar(servicesData) {
-    let input = document.getElementById('search-bar').value;
-    input = input.toLowerCase();
-    console.log(input);
-}
-
+// This function gives all its data to its argument servicesData.
+allData(servicesData);
 
 
 
